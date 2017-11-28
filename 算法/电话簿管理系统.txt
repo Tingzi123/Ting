@@ -1,0 +1,152 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+class node
+{
+public:
+	string name;
+	string number;
+	node *next;
+};
+class list
+{
+public:
+	int length;
+	node *head;
+	void init()
+	{
+		node *p = new node();
+		head = p;
+		head->name = "chenting";
+		head->number = "123456";
+		head->next = NULL;
+		length = 1;
+	}
+	void insert(string name, string number)
+	{
+		node *p = new node();
+		if (length == 1)
+		{
+			head->next = p;
+			p->name = name;
+			p->number = number;
+			length++;
+			head->next->next = NULL;
+			cout << "已新建联系人" << endl;
+		}
+		//error
+		else{
+			node *p1 = head;
+			for (int i = 0; i < length - 1; i++)
+			{
+				p1 = p1->next;
+			}
+			p->name = name;
+			p->number = number;
+			//error
+			p1->next = p;
+			p1->next->next = NULL;
+			length++;
+			cout << "已新建联系人" << endl;
+		}
+	}
+	void del(string name)
+	{
+		node  *pre = head;//error
+		node *p = head;
+		for (int i = 0; i < length - 1; i++)
+		{
+			p = p->next;
+			if (p->name == name)
+			{
+				pre->next = p->next;
+				length--;
+				cout << "已删除联系人" << endl;
+			}
+			pre = p;
+		}
+	}
+	void search(string name)
+	{
+		node *p = head;
+		for (int i = 0; i < length - 1; i++)
+		{
+			p = p->next;
+			if (p->name == name)
+			{
+				cout << "电话号码：" << p->number << endl;
+				return;
+			}
+		}
+	}
+	void show()
+	{
+		node *p = head;
+		for (int i = 0; i < length - 1; i++)
+		{
+			p = p->next;
+			cout << "姓名：" << p->name << "电话号码：" << p->number << endl;
+		}
+	}
+	void writef()
+	{
+		ofstream outfile("phonebook.txt", ios::out);
+		node *p = head;
+		for (int i = 0; i < length - 1; i++)
+		{
+			p = p->next;
+			cout << "姓名:" << p->name << "  电话:" << p->number << endl;
+		}
+		cout << "已更新文件" << endl;
+	}
+
+};
+int main()
+{
+	list phonebook;
+	phonebook.init();
+	string name;
+	string number;
+	int c;
+
+again:
+	cout << "新建联系人请按1" << endl;
+	cout << "删除联系人请按2" << endl;
+	cout << "查找联系人请按3" << endl;
+	cout << "查看电话簿请按4" << endl;
+	cin >> c;
+	if (c<1 || c>4)
+	{
+		cout << "输入错误，请重新输入" << endl;
+		goto again;
+	}
+	switch (c)
+	{
+	case 1:
+		cout << "请输入姓名和电话号码" << endl;
+		cin >> name >> number;
+		phonebook.insert(name, number);
+		phonebook.writef();
+		break;
+	case 2:
+		cout << "请输入您要删除的姓名：" << endl;
+		cin >> name;
+		phonebook.del(name);
+		phonebook.writef();
+		break;
+	case 3:
+		cout << "请输入要查找的姓名：" << endl;
+		cin >> name;
+		phonebook.search(name);
+		phonebook.writef();
+		break;
+	case 4:
+		phonebook.show();
+		break;
+	default:
+		break;
+	}
+	goto again;
+	return 0;
+}

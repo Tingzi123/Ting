@@ -1,0 +1,6 @@
+适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。
+
+ jQuery+CSS3双表盘时钟代码
+
+相关: jQuery CSS3 时钟
+

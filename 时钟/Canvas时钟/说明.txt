@@ -1,0 +1,5 @@
+适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。
+
+ 获取本地时间的Html5时钟特效
+
+相关: html5 本地时间 时钟走动 

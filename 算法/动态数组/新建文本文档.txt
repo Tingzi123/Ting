@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+void Readscore(int *p, int m, int n);
+int main()
+{
+	int m, n, m1, n1, i, j;
+	int *p = NULL;
+	int max = 0;
+	printf("please input class number\n");
+	scanf("%d", &m);
+	printf("please input student number\n");
+	scanf("%d", &n);
+	p = (int *)calloc(m*n, sizeof(int));
+	if (p == NULL)
+	{
+		printf("No enough memory!\n");
+		exit(1);
+	}
+	Readscore(p, m, n);
+	for (i = 0; i<m; i++)
+	for (j = 0; j<n; j++)
+	{
+		if (p[i * m + j] > max)
+		{
+			max = p[i* m + j];
+			m1 = i + 1;
+			n1 = j + 1;
+		}
+	}
+	printf("The student is %d class , the %dth and the highest score is %d\n", m1, n1, max);
+	free(p);
+	return 0;
+}
+
+void Readscore(int *p, int m, int n)
+{
+    int i, j;
+	for (i = 0; i < m; i++)
+	{
+		printf("Please enter score of class %d:\n", i + 1);
+		for (j = 0; j < n; j++)
+		{
+			scanf("%d", &p[i *m + j]);
+		}
+	}
+}

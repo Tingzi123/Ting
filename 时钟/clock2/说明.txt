@@ -1,0 +1,9 @@
+适用浏览器：FireFox、Chrome、Safari、Opera、傲游、搜狗. 不支持IE8、360、世界之窗。
+
+
+
+css3精致时钟效果
+
+相关: css3 时钟 图片放大
+
+分类: 脚本

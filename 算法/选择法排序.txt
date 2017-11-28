@@ -1,0 +1,59 @@
+#include<iostream>
+using namespace std;
+#define N 5;
+int read(int a[ ]);
+void sort(int a[ ], int n);
+void print(int a[ ], int n);
+int main()
+{
+	int a[5];
+	int n;
+	n = read(a);
+	cout << "The total numbers is " << n << endl;
+	sort(a, n);
+	print(a, n);
+	return 0;
+}
+int read(int a[ ])
+{
+	int i = -1;
+	do{
+		i++;
+		cout << "Input the number:";
+		cin >> a[i];
+	} while (a[i] >= 0);
+	cout << endl;
+	return i;
+}
+void sort(int a[ ], int n)
+{
+	int i, j, k, temp;
+	for (i = 0; i < n - 1; i++)
+	{
+		k = i;
+		for (j = i + 1; j < n; j++)
+		{
+			if (a[j]<a[k])
+			{
+				k = j;
+			}
+
+		}
+		if (k != i)
+		{
+			temp = a[k];
+			a[k] = a[i];
+			a[i] = temp;
+		}
+	}
+}
+
+void print(int a[ ], int n)
+{
+	int i;
+	for (i = 0; i < n; i++)
+	{
+		cout << a[i] << ",";
+	}
+	cout << endl;
+}

@@ -1,0 +1,9 @@
+适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。
+
+
+
+SVG时钟走时图标特效
+
+相关: css3 SVG 时钟
+
+分类: 脚本

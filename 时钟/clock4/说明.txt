@@ -1,0 +1,10 @@
+适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。
+
+
+
+html5 canvas绘制时钟表时间
+
+相关: html5 时钟 时间特效
+
+分类: 脚本
+
